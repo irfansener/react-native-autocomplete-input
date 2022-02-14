@@ -5,8 +5,8 @@ import { FlatList, Platform, StyleSheet, Text, TextInput, View, ViewPropTypes } 
 export const AutocompleteInput = (props) => {
   function renderResultList(data, listProps) {
     const { style, ...flatListProps } = listProps;
-
-    return <FlatList data={data} style={[styles.list, style]} {...flatListProps} />;
+    return <View style={[styles.list, style]}>{data.map((item, index) => index < 4 &&flatListProps.renderItem({ item }))}</View>
+    //return <FlatList data={data} style={[styles.list, style]} {...flatListProps} />;
   }
 
   function renderTextInput() {
